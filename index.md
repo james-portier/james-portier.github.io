@@ -4,7 +4,7 @@
 
 ### Data Science
 
-[ARIMA forecasting JPM close prices](/sample_page)
+[ARIMA forecasting JPM close prices](/projects/arimaForecasting/arimaFinal.html)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
