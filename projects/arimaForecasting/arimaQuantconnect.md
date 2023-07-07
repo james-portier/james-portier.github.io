@@ -1,6 +1,6 @@
 # ARIMA Forecasting Strategy using QuantConnect
 
-**Project description:** In this project I used QuantConnect's back testing API to implement a long/short strategy. The strategy uses ARIMA forecasting to predict whether the next day closing price will increase or decrease, and adjusts the portfolio holdings accordingly. The full back testing results can be viewed [here]()
+**Project description:** In this project I used QuantConnect's back testing API to implement a long/short strategy. The strategy uses ARIMA forecasting to predict whether the next day closing price will increase or decrease, and adjusts the portfolio holdings accordingly. The full back testing results can be viewed [here](https://www.quantconnect.com/terminal/processCache/?request=embedded_backtest_bb0e42fcff0513e3f0f7020dd838d399.html)
 
 
 ## Trading strategy
@@ -193,6 +193,8 @@ def OnEndOfAlgorithm(self) -> None:
 ## Backtesting Results
 
 ### Strategy Equity
+
+<img src="backtestSummary.png?raw=true"/>
 
 
 
