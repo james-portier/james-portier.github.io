@@ -87,7 +87,7 @@ class SmoothSkyBlueMosquito(QCAlgorithm):
 Here is where the actual trading strategy is implemented. The algorithm is very similar to that used in the research notebook, with the following additions:
 - An `IF` statment at the start of the function is included to enforce the warmup period
 - A `History()` request is made on every trading day. This is a built in method provided by the `QCAlgorithm` class. This fetches all the available data before the current trading day (starting from 1/1/2013 in this case). We use this to get the most recent closing price.
-    - *note: the use of a rolling window would've been more efficient here*
+    - *in hindsight, the use of a rolling window would've been more efficient here*
 - `Nested IF` statements that update the strategies holdings based on the outcome of the most recent price prediction
 
 ```python
@@ -192,8 +192,11 @@ def OnEndOfAlgorithm(self) -> None:
 
 ## Backtesting Results
 
+### Strategy Equity
 
-test
+
+
+Overall, the strategy appears to have performed well. 
 
 
 ### 3. Support the selection of appropriate statistical tools and techniques
