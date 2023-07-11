@@ -19,7 +19,7 @@
 
 ### Quant Connect
 
-[ARIMA quantconnect](/projects/arimaForecasting/arimaQuantconnect.md)
+[ARIMA quantconnect](/projects/arimaForecasting/arimaQuantconnect)
 <a href="/projects/arimaForecasting/arimaQuantconnect.md" target="_blank">ARIMA Forecasting</a>
 
 
