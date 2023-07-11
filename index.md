@@ -21,6 +21,8 @@
 
 [ARIMA quantconnect](/projects/arimaForecasting/arimaQuantconnect){:target="_blank"}
 <a href="/projects/arimaForecasting/arimaQuantconnect.md" target="_blank">ARIMA Forecasting</a>
+<a href="sample_page.md" target="_blank">Sample page</a>
+
 
 <a href="{{ site.baseurl }}/arimaQuantconnect.html">Link to arimaQuantconnect.md</a>
 
