@@ -4,7 +4,7 @@
 
 ### Data Science
 
-[Creating a Deep Neural Network from scratch and testing its ability to classify swimming strokes](/projects/deepNN/3LayerNN.html)
+[Creating a Deep Neural Network from scratch and using it to classify swimming strokes](/projects/deepNN/3LayerNN.html)
 <img src="projects/deepNN/thumbnail.png?raw=true"/>
 
 ---
