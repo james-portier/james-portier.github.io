@@ -22,6 +22,7 @@
 <a href="/projects/arimaForecasting/arimaQuantconnect.html" target="_blank">ARIMA Forecasting</a>
 [ARIMA quantconnect](/projects/arimaForecasting/arimaQuantconnect.md)
 <a href="sample_page.md" target="_blank">Sample page</a>
+<a href="https://james-portier.github.io/projects/arimaForecasting/arimaQuantconnect.md" target="_blank">Rendered test</a> 
 
 
 <a href="{{ site.baseurl }}/arimaQuantconnect.html">Link to arimaQuantconnect.md</a>
