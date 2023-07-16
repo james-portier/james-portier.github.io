@@ -19,7 +19,7 @@
 ---
 
 ### Quant Connect
-[Using read me](README.md)
+
 
 <a href="test.html" target="_blank">ARIMA Forecasting</a>
 <a href="sample_page.md" target="_blank">Sample page</a>
