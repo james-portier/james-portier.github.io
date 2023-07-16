@@ -19,9 +19,9 @@
 ---
 
 ### Quant Connect
-[markdown render test](/projects/arimaForecasting/arimaQuantconnect.md)
+[markdown render test](/projects/arimaForecasting/renderTest.html)
 
-<a href="test.html" target="_blank">ARIMA Forecasting</a>
+
 <a href="sample_page.md" target="_blank">Sample page</a>
 <a href="test.md" target="_blank">Rendered test</a> 
 
