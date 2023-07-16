@@ -5,8 +5,8 @@ description: > # your text below (remove <br> elements if you don't need line br
   robust mathematical skills, complemented by strong coding proficiency in Python and R.
   <br><br>
   This website serves as a platform to showcase the various data science and quant coding projects I have completed over the summer, along with highlighting the online courses I have undertaken.
-  <br><br>
   <a href="https://www.linkedin.com/in/james-portier">View My LinkedIn Profile</a> 
+  
   
 remote_theme: pages-themes/minimal@v0.2.0
 plugins:
