@@ -23,7 +23,7 @@
 
 
 ## Online courses/certifications
-- [Mathematics for Machine Learning - PCA  (by *Imperial College London*)](/projects/arimaForecasting/arimaQC.html)
-- [Neural Networks and Deep Learning (by *DeepLearning.AI*)](/projects/arimaForecasting/arimaQC.html)
-- [Technology Sector Internship (*IEUK*)](/projects/arimaForecasting/arimaQC.html)
-- [QuantConnect A-Z Algorithmic Trading Course (by *Louis from TradeOptionsWithMe*)](/projects/arimaForecasting/arimaQC.html)
+- [Mathematics for Machine Learning - PCA  (by *Imperial College London*)](/certifications/Mathematics For Machine Learning - PCA.pdf)
+- [Neural Networks and Deep Learning (by *DeepLearning.AI*)](/certifications/Deep Learning and Neural Networks.pdf)
+- [Technology Sector Internship (*IEUK*)](/certifications/IEUK Cert.png)
+- [QuantConnect A-Z Algorithmic Trading Course (by *Louis from TradeOptionsWithMe*)](/certifications/A-Z Algorithmic Trading Course.png)
