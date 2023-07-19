@@ -186,15 +186,20 @@ def OnEndOfAlgorithm(self) -> None:
         self.Log(f"The price of {self.symbol} on the final trading day: {self.endPrice}")
 
         # Calculating the long and hold strategy return
-        longHoldRet = self.endPrice / self.startPrice
+        longHoldRet = (self.endPrice - self.startPrice) / self.startPrice
         self.Log(f"A long and hold strategy would've had a return of: {longHoldRet}")
 ```
 
-## Backtesting Results
+## Results
 
 ### Strategy Equity
 
 <img src="backtestSummary.png?raw=true"/>
+
+### Performance Metrics
+<img src="backtestSummary.png?raw=true"/>
+
+Above is a strategy equity chart. From this we see that the final equity value of the strategy after backtesting is $179,042.49, giving a profit of 48.211% of the original capital.
 
 
 
