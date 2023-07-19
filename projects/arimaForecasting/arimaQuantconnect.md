@@ -196,22 +196,26 @@ def OnEndOfAlgorithm(self) -> None:
 
 <img src="backtestSummary.png?raw=true"/>
 
+Above is the strategy's equity chart. The strategy seems to have performed well - the final equity value of the strategy after backtesting is $179,042.49, giving a profit of 48.211% of the original capital. To further investigate the effectiveness of the strategy we look at the performance metrics:
+
 ### Performance Metrics
-<img src="backtestSummary.png?raw=true"/>
+<img src="overview.png?raw=true"/>
 
-Above is a strategy equity chart. From this we see that the final equity value of the strategy after backtesting is $179,042.49, giving a profit of 48.211% of the original capital.
+The performance metrics we're interested in are the `Alpha`, `Win Rate`,and `Sharpe Ratio`:
+- `Alpha`: Measure of the strategy's excess return relative to its benchmark. A positive alpha of 0.044 suggests the strategy outperformed the benchmark
+- `Win Rate`: The percentage of winning trades is 62%,
+- `Sharpe Ratio`: Measures the risk-adjusted return of the strategy. A value of 1.026 indicates that the strategy has a positive risk-adjusted return, suggesting that the strategy compensates for the volatility (risk) it exposes us to.
 
+### Logs
+<img src="logs.png?raw=true"/>
 
+Finally, the Logs show the return that would've been achieved using a long + hold strategy (**67.9%**). This was outperformed by our strategy, which had an overall return of **79.04%**.
 
-Overall, the strategy appears to have performed well. 
+## Caveats
+Whilst the back testing results are positive, several caveats apply to this project:
+- The chosen stock and backtesting timeframe were tailored for ARIMA models' suitability. As a result, the model/strategy's performance is likely to be significantly poorer when applied to different timeframes or stocks less compatible with ARIMA, such as those with substantial price spikes or abrupt trend changes.
+- The assumption of heteroskedasticity made by ARIMA models is likely to be violated in this case. The stock appears to exhibit an increasing conditional variance over time, necessitating the use of an additional model like GARCH to fully capture it.
+- The strategy's favorable performance partly stems from JPM's stocks displaying an upward trend during the backtesting period. If its stock price had shown a declining trend, the strategy would probably have yielded a negative return."
 
+Given these reasons, I would advise against utilizing this strategy for live trading. Nevertheless, I enjoyed working on this project, and it served as a beneficial learning experience.
 
-### 3. Support the selection of appropriate statistical tools and techniques
-
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
-
-### 4. Provide a basis for further data collection through surveys or experiments
-
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
