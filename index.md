@@ -20,6 +20,7 @@
 
 ### Quant Connect
 [Long/short strategy using ARIMA forecasting](/projects/arimaForecasting/arimaQC.html)
+<img src="projects/arimaForecasting/backtestSummary.png?raw=false"/>
 
 
 <a href="sample_page.md" target="_blank">Sample page</a>
