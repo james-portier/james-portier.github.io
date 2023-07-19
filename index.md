@@ -13,21 +13,17 @@
 <img src="projects/arimaForecasting/projectPic.png?raw=true"/>
 
 ---
-[Project 3 Title](http://example.com/)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
-
----
 
 ### Quant Connect
 [Long/short strategy using ARIMA forecasting](/projects/arimaForecasting/arimaQC.html)
 <img src="projects/arimaForecasting/backtestSummary.png?raw=false"/>
 
 
-<a href="sample_page.md" target="_blank">Sample page</a>
-<a href="test.md" target="_blank">Rendered test</a> 
-
-
-<a href="{{ site.baseurl }}/arimaQuantconnect.html">Link to arimaQuantconnect.md</a>
-
-
 ---
+
+
+## Online courses/certifications
+- [Mathematics for Machine Learning - PCA  (by *Imperial College London*)](/projects/arimaForecasting/arimaQC.html)
+- [Neural Networks and Deep Learning (by *DeepLearning.AI*)](/projects/arimaForecasting/arimaQC.html)
+- [Technology Sector Internship (*IEUK*)](/projects/arimaForecasting/arimaQC.html)
+- [QuantConnect A-Z Algorithmic Trading Course (by *Louis from TradeOptionsWithMe*)](/projects/arimaForecasting/arimaQC.html)
