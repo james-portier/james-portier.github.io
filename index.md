@@ -19,7 +19,7 @@
 ---
 
 ### Quant Connect
-[markdown render test](/projects/arimaForecasting/renderTest.html)
+[Long/short strategy using ARIMA forecasting](/projects/arimaForecasting/arimaQC.html)
 
 
 <a href="sample_page.md" target="_blank">Sample page</a>
