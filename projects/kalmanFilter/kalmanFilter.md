@@ -55,11 +55,17 @@ Now that the required variables have been initialized, we can implement the Kalm
 <img src="kalmanEqns.png?raw=true"/>
 
 where 
+- `at`: Prior mean
+- `Rt`: Prior variance-covariance
+    - Prior ~ Multivariate-Normal(`at`, `Rt`)
+- `mt`: Posterior mean
+- `Ct`: Posterior state variance-covariance matrix
+    - Posterior ~ Multivariate-Normal(`mt`, `Ct`)
 - `et`: Error term
 - `Ft`: Observation matrix of the latest prices
 - `Qt`: Variance of the predictions
 - `At`: Kalman gain
-- `Ct`: Posterior state variance-covariance matrix
+
 
 The article I used to help me with this can be found [here](https://www.quantstart.com/articles/State-Space-Models-and-the-Kalman-Filter/)
 
