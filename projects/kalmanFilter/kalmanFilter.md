@@ -11,13 +11,10 @@ Kalman filters have diverse applications - in this case, we will employ a Kalman
 
 
 ## Trading strategy
-The pairs-trading strategy is applied to two cointegrated equities, namely 'ING' and 'TCB'. The choice of this pair was informed by the results of a [research article](https://www.quantconnect.com/research/15347/intraday-dynamic-pairs-trading-using-correlation-and-cointegration-approach/p1) that found pairs of cointegrated (and correlated) equities. The results from this showed that the `ING`-`TCB` pair ranked the highest in terms of ADF test value and correlation coefficient.
+The pairs-trading strategy is applied to two cointegrated equities, namely 'ING' and 'TCB'. The choice of this pair was informed by the results of a [research article](https://www.quantconnect.com/research/15347/intraday-dynamic-pairs-trading-using-correlation-and-cointegration-approach/p1) that found pairs of cointegrated (and correlated) equities. The results from this showed that the `ING`-`TCB` pair ranked the highest in terms of ADF test value and correlation coefficient. In this project we 
 
-TLT - iShares 20+ Year Treasury Bond ETF
-IEI - iShares 3-7 Year Treasury Bond ETF
-The goal is to build a mean-reverting strategy from this pair of ETFs.
 
-The synthetic "spread" between TLT and IEI is the time series that we are actually interested in longing or shorting. The Kalman Filter is used to dynamically track the hedging ratio between the two in order to keep the spread stationary (and hence mean reverting).
+The synthetic "spread" between `ING` and `TCB` is the time series that we are actually interested in longing or shorting. The Kalman Filter is used to dynamically track the hedging ratio between the two in order to keep the spread stationary (and hence mean reverting).
 
 
 ## Code
