@@ -8,15 +8,16 @@ A _Kalman Filter_ is a state-space model designed for linear dynamic systems, wh
 <img src="kalmanFilterDiagram.png?raw=true"/>
 
 Kalman filters have diverse applications - in this case, we will employ a Kalman Filter to estimate the hedge ratio between a pair of equities. 
-## Trading strategy
 
-This trading strategy was inspired by results I achieved through fitting an ARIMA model in a jupter notebook. The details are as follows:
-1. Train an ARIMA model on the first half of the back testing period (called a `warmup period`in quantconnect), and use this model to optimise the hyperparameters (p and q)
-2. For days remaining after the warmup period has ended (second half of the back testing period):
-    - Fit an ARIMA model on all the available data, using the optimal values for p,q calculated in step 1
-    - Produce a next day forecast of JPM's closing price
-      - If the forecast is higher than the previous closing price (an upwards prediction), update strategy holdings to a `long` position on JPM's stock
-      - Else, maintain a neutral position, or `liquidate` the stock if currently holding a long position
+
+## Trading strategy
+The pairs-trading strategy is applied to two cointegrated equities, namely 'ING' and 'TCB'. The choice of this pair was informed by the results of a [research article](https://www.quantconnect.com/research/15347/intraday-dynamic-pairs-trading-using-correlation-and-cointegration-approach/p1) that found pairs of cointegrated (and correlated) equities. The results from this showed that the `ING`-`TCB` pair ranked the highest in terms of ADF test value and correlation coefficient.
+
+TLT - iShares 20+ Year Treasury Bond ETF
+IEI - iShares 3-7 Year Treasury Bond ETF
+The goal is to build a mean-reverting strategy from this pair of ETFs.
+
+The synthetic "spread" between TLT and IEI is the time series that we are actually interested in longing or shorting. The Kalman Filter is used to dynamically track the hedging ratio between the two in order to keep the spread stationary (and hence mean reverting).
 
 
 ## Code
@@ -61,10 +62,10 @@ where
 - `mt`: Posterior mean
 - `Ct`: Posterior state variance-covariance matrix
     - Posterior ~ Multivariate-Normal(`mt`, `Ct`)
-- `et`: Error term
+- `et`: Error term (difference between the actual observation and the prediction)
 - `Ft`: Observation matrix of the latest prices
 - `Qt`: Variance of the predictions
-- `At`: Kalman gain
+- `At`: Kalman gain, used to update the posterior state estimate
 
 
 The article I used to help me with this can be found [here](https://www.quantstart.com/articles/State-Space-Models-and-the-Kalman-Filter/)
@@ -114,6 +115,39 @@ The article I used to help me with this can be found [here](https://www.quantsta
             
             return et, np.sqrt(Qt), hedge_quantity 
 ```
+
+
+### Trading Algorithm
+Now that the Kalman Filter class has been created, we can implement and evaluate the Pairs Trading strategy using QuantConnect's backtesting API. 
+
+#### Initialize()
+First we 
+```python
+#region imports
+from AlgorithmImports import *
+#endregion
+
+import numpy as np
+from math import floor
+from KalmanFilter import KalmanFilter
+
+class PairsTradingStrategy(QCAlgorithm):
+    def Initialize(self):
+        self.SetStartDate(2016, 1, 1)  # Set Start Date
+        self.SetEndDate(2016, 3, 8)
+        self.SetCash(1000000)  # Set Strategy Cash
+        self.SetBrokerageModel(AlphaStreamsBrokerageModel())
+
+        self.symbols = [self.AddEquity(x, Resolution.Minute).Symbol for x in ['ING', 'TCB']]
+        self.kf = KalmanFilter()
+        self.invested = None
+    
+        self.Schedule.On(self.DateRules.EveryDay('ING'), self.TimeRules.BeforeMarketClose('ING', 5), self.UpdateAndTrade)
+```
+
+
+
+
 
 This strategy is especially profitable when the market is performing poorly.
 The profit is resulted from mispricing, and mispricings are likely to happen when the market goes down or volatility increases.
