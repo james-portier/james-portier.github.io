@@ -16,7 +16,7 @@
 
 ### Quant Connect
 [Pairs Trading Strategy using a Kalman Filter](/projects/kalmanFilter/kalmanFilter.html)
-
+<img src="projects/kalmanFilter/summary.png?raw=false"/>
 
 [Long/short strategy using ARIMA forecasting](/projects/arimaForecasting/arimaQC.html)
 <img src="projects/arimaForecasting/backtestSummary.png?raw=false"/>
