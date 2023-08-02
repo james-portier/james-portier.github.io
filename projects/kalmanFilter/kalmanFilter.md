@@ -15,7 +15,7 @@ The synthetic "spread" between `ING` and `TCB` is the time series that we are ac
 
 A _Kalman Filter_ is a state-space model designed for linear dynamic systems, where the state varies with time and changes are represented linearly. Its main purpose is to estimate unknown states of a variable based on past values. The filter predicts (estimates) the current state of the variable and the uncertainty associated with the estimate. As new data becomes available, these estimates are then updated. 
 
-<img src="kalmanFilterDiagram.png?raw=true"/>
+<img src="diagram.png?raw=true"/>
 
 Kalman filters have diverse applications - in this case, we will employ a Kalman Filter to estimate the hedge ratio between `ING` and `TCB`. 
 
@@ -119,7 +119,7 @@ The article I used to help me with this can be found [here](https://www.quantsta
 ### Trading Algorithm
 Now that the Kalman Filter class has been created, we can implement and evaluate the Pairs Trading strategy using QuantConnect's backtesting API. 
 
-#### Initialize()
+#### Initialize
 First we need to define the initialize method, specifying the backtest timeframe, strategy cash, and the brokerage model to be used. We also define an event scheduler that will prompt the algorithm to trade every day, 5 minutes before markets close.
 
 ```python
@@ -154,11 +154,11 @@ Formally, the rules are specified as:
 2. $e_t \geq - \sqrt{Q_t}$ - Exit long: Close all long positions of ING and TCB
 3. $e_t \gt \sqrt{Q_t}$ - Short the spread : Go short $N$ shares of ING and go long
 $\lfloor{\theta_t^0N}\rfloor$ units of TCB
-5. $e_t \leq \sqrt{Q_t}$ - Exit short: Close all short positions of ING nad 
+5. $e_t \leq \sqrt{Q_t}$ - Exit short: Close all short positions of ING and TCB
 
 where $e_t$ : Error term, $Q_t$: Variance of predictions, $\theta_0^t$: Dynamic hedge ratio at time t
 
-We implement this using `market orders` to place buy or sell orders at the current market price for the specified equities.
+We implement this using `market orders` to place buy or sell orders at the current market price for the specified equities:
 
 ```python
 def UpdateAndTrade(self):
