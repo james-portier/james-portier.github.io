@@ -1,10 +1,10 @@
 # Pair Trading using a Kalman Filter
 
-**Project description:** This project involves the use of Kalman Filters  The full back testing results can be viewed [here](https://www.quantconnect.com/terminal/processCache/?request=embedded_backtest_bb0e42fcff0513e3f0f7020dd838d399.html)
+**Project description:** This project involves the use of Kalman Filters to implement a long-short pair trading strategy. Click [here](https://www.quantconnect.com/terminal/processCache/?request=embedded_backtest_86f1d7d37553e53a1b67c4baf6874ddc.html)  to see the full back testing results.
 
 
 ## Trading strategy
-The idea behind the strategy is pretty straightforward: take two equities that are cointegrated and create a long-short portfolio. The premise of this is that the spread between the value of our two positions should be mean-reverting. Anytime the spread deviates from its expected value, one of the assets moved in an unexpected direction and is due to revert back. When the spread diverges, we will take advantage of this by going long or short on the spread.
+The idea behind the strategy is to take two equities that are cointegrated and create a long-short portfolio. The premise of this is that the spread between the value of our two positions should be mean-reverting. Anytime the spread deviates from its expected value, one of the assets moved in an unexpected direction and is due to revert back. When the spread diverges, we will take advantage of this by going long or short on the spread.
 
 The pair of equities we will use in this project are 'ING' and 'TCB'. The choice of this pair was informed by the results of a [research article](https://www.quantconnect.com/research/15347/intraday-dynamic-pairs-trading-using-correlation-and-cointegration-approach/p1) that found pairs of cointegrated (and correlated) equities. The results from this showed that the `ING`-`TCB` pair ranked the highest in terms of ADF test value and correlation coefficient.
 
@@ -17,7 +17,7 @@ A _Kalman Filter_ is a state-space model designed for linear dynamic systems, wh
 
 <img src="kalmanFilterDiagram.png?raw=true"/>
 
-Kalman filters have diverse applications - in this case, we will employ a Kalman Filter to estimate the hedge ratio between a pair of equities. 
+Kalman filters have diverse applications - in this case, we will employ a Kalman Filter to estimate the hedge ratio between `ING` and `TCB`. 
 
 ## Code
 
@@ -45,7 +45,7 @@ class KalmanFilter:
         self.theta = np.zeros(2)
         self.P = np.zeros((2, 2))
         self.R = None #
-        self.qty = 2000 
+        self.qty = 25000 
 ```
 
 
