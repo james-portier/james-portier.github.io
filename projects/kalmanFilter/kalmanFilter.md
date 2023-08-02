@@ -1,12 +1,11 @@
 # Pairs Trading Strategy using a Kalman Filter
-
-This project involves the use of Kalman Filters to implement a long-short pairs trading strategy. Click [here](https://www.quantconnect.com/terminal/processCache/?request=embedded_backtest_86f1d7d37553e53a1b67c4baf6874ddc.html)  to see the full back testing results.
+In this project I implemented a Kalman-Filter based Pairs Trading Strategy within QuantConnect's algorithmic trading platform. This strategy was inspired by a section in Ernest Chan's [Algorithmic Trading Book](https://dl.abcbourse.ir/dl/Library/book/Algorithmic_Trading__Winning_Strategies.pdf) on the _mean reversion of stocks_. Click [here](https://www.quantconnect.com/terminal/processCache/?request=embedded_backtest_86f1d7d37553e53a1b67c4baf6874ddc.html) to see the full code and backtesting results.
 
 
 ## Trading strategy
-The idea behind the strategy is to take two equities that are cointegrated and create a long-short portfolio. The premise of this is that the spread between the value of our two positions should be mean-reverting. Anytime the spread deviates from its expected value, one of the assets moved in an unexpected direction and is due to revert back. When the spread diverges, we will take advantage of this by going long or short on the spread.
+The idea behind this strategy is to take two equities that are cointegrated and create a long-short portfolio. The premise of this is that the spread between the values of these two positions tends to revert to its mean over time. Whenever the spread deviates from its anticipated value, it indicates that one of the assets has moved in an unexpected direction and is likely to revert back. When the spread diverges, we will take advantage of this by going long or short on the spread.
 
-The pair of equities we will use in this project are `ING` and `TCB`. The choice of this pair was informed by the results of a [research article](https://www.quantconnect.com/research/15347/intraday-dynamic-pairs-trading-using-correlation-and-cointegration-approach/p1) that found pairs of cointegrated (and correlated) equities. The results from this showed that the `ING`-`TCB` pair ranked the highest in terms of ADF test value and correlation coefficient.
+The pair of equities we will use in this project are `ING` and `TCB`. The choice of this pair was informed by the results of a [research article](https://www.quantconnect.com/research/15347/intraday-dynamic-pairs-trading-using-correlation-and-cointegration-approach/p1) that found pairs of cointegrated (and correlated) equities over a specific timeframe. The results from this showed that the `ING`-`TCB` pair ranked the highest in terms of ADF test value and correlation coefficient.
 
 The synthetic "spread" between `ING` and `TCB` is the time series that we are actually interested in longing or shorting. The `Kalman Filter` is used to dynamically track the hedging ratio between the two in order to keep the spread stationary (and hence mean reverting).
 
