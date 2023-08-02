@@ -130,14 +130,7 @@ class PairsTradingStrategy(QCAlgorithm):
 
 To create the trading rules we need to determine when the spread has moved too far from its expected value. We do this by considering a multiple of the standard deviation of the spread and using these as the bounds (we _long_ the spread if the forecast error drops below the negative standard deviation of the spread, and _short_ the spread if the forecast error exceeds the positive standard deviation of the spread).
 
-Formally, the rules are specified as:
-1. $e_t \lt - \sqrt{Q_t}$ - Long the spread: Go long $N$ shares of ING and go short $\lfloor{\theta_t^0N}\rfloor$ units of TCB
-2. $e_t \geq - \sqrt{Q_t}$ - Exit long: Close all long positions of ING and TCB
-3. $e_t \gt \sqrt{Q_t}$ - Short the spread : Go short $N$ shares of ING and go long
-$\lfloor{\theta_t^0N}\rfloor$ units of TCB
-5. $e_t \leq \sqrt{Q_t}$ - Exit short: Close all short positions of ING and TCB
-
-where $e_t$ : Error term, $Q_t$: Variance of predictions, $\theta_0^t$: Dynamic hedge ratio at time t
+<img src="tradingRules.png?raw=true"/>
 
 We implement this using `market orders` to place buy or sell orders at the current market price for the specified equities:
 
