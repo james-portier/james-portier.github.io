@@ -1,6 +1,6 @@
-# Pair Trading using a Kalman Filter
+# Pairs Trading Strategy using a Kalman Filter
 
-**Project description:** This project involves the use of Kalman Filters to implement a long-short pair trading strategy. Click [here](https://www.quantconnect.com/terminal/processCache/?request=embedded_backtest_86f1d7d37553e53a1b67c4baf6874ddc.html)  to see the full back testing results.
+This project involves the use of Kalman Filters to implement a long-short pairs trading strategy. Click [here](https://www.quantconnect.com/terminal/processCache/?request=embedded_backtest_86f1d7d37553e53a1b67c4baf6874ddc.html)  to see the full back testing results.
 
 
 ## Trading strategy
@@ -11,7 +11,7 @@ The pair of equities we will use in this project are `ING` and `TCB`. The choice
 The synthetic "spread" between `ING` and `TCB` is the time series that we are actually interested in longing or shorting. The `Kalman Filter` is used to dynamically track the hedging ratio between the two in order to keep the spread stationary (and hence mean reverting).
 
 
-## Kalman Filters
+## Kalman Filter
 
 A _Kalman Filter_ is a state-space model designed for linear dynamic systems, where the state varies with time and changes are represented linearly. Its main purpose is to estimate unknown states of a variable based on past values. The filter predicts (estimates) the current state of the variable and the uncertainty associated with the estimate. As new data becomes available, these estimates are then updated. 
 
@@ -206,11 +206,11 @@ def UpdateAndTrade(self):
 ### Performance Metrics
 <img src="overview.png?raw=true"/>
 
-Upon analyzing the strategy's performance over the specified backtesting period, we observe significant positive indicators, such as a promising `Alpha` (0.211) and a high `Sharpe Ratio` (3.262). These impressive metrics suggest that the strategy has the potential to outperform the market and is relatively less risky in comparison to its returns. However, it is essential to acknowledge a caveat: the specific backtesting time period was deliberately chosen due to the anticipated cointegration and high correlation between ING and TCB during that timeframe. This introduced a look-ahead bias, implying that the strategy might not perform as effectively if a different backtesting period were employed. To ensure greater robustness, it is recommended to backtest the strategy with multiple pairs and over a longer timeframe.
+### Conclusions
+Upon analyzing the strategy's performance over the specified backtesting period, we observe significant positive indicators, such as a promising `Alpha` (0.211) and a high `Sharpe Ratio` (3.262). These metrics suggest that the strategy has the potential to outperform the market and is relatively less risky in comparison to its returns. However, it is essential to acknowledge a caveat: the specific backtesting time period was deliberately chosen due to the anticipated cointegration and high correlation between ING and TCB during that timeframe. This introduced a look-ahead bias, implying that the strategy might not perform as effectively if a different backtesting period were employed. Additionally, this strategy is especially profitable when the market is performing poorly - the profit is resulted from mispricing, and mispricings are likely to happen when the market goes down or volatility increases.
 
-Additionally, this strategy is especially profitable when the market is performing poorly - the profit is resulted from mispricing, and mispricings are likely to happen when the market goes down or volatility increases.
+To ensure greater robustness, it is recommended to backtest the strategy with multiple pairs and over a longer timeframe.
+
 
 ## End note
 Whilst initially struggling to wrap my head around Kalman Filters, creating one from scratch greatly helped with my understanding. Using it to implement a pair trading strategy was interesting and it was satisfying to find a backtesting period in which this strategy performed well. 
-
-
