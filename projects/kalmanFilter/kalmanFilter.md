@@ -34,6 +34,8 @@ First we initialize the variables we'll need for to update the Kalman Filter. Th
 - $R$: Prior state variance-covariance matrix
 - qty: Integer representing the quantity used for trading positions
 
+<img src="initialize.png?raw=true"/>
+
 ```python
 class KalmanFilter:
     def __init__(self):
@@ -46,7 +48,6 @@ class KalmanFilter:
         self.R = None #
         self.qty = 25000 
 ```
-
 
 #### Updating the Kalman Filter
 Now that the required variables have been initialized, we can implement the Kalman Filter using the following equations:
