@@ -23,7 +23,7 @@ Kalman filters have diverse applications - in this case, we will employ a Kalman
 
 ### Custom KalmanFilter class 
 
-Although there are various pre-existing libraries that implement a Kalman filter, for this project I chose to create my own custom Kalman filter class. 
+Although there are various pre-existing libraries that implement a Kalman filter, for this project I chose to create my own custom Kalman filter class in order to improve my understanding. 
 
 #### Initialize
 First we initialize the variables we'll need for to update the Kalman Filter. These are as follows:
