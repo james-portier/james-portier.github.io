@@ -27,7 +27,7 @@ Although there are various pre-existing libraries that implement a Kalman filter
 
 #### Initialize
 First we initialize the variables we'll need for to update the Kalman Filter. These are as follows:
-- `delta`: Constant used to calculate the initial state variance `R`
+- delta: Constant used to calculate the initial state variance `R`
 - $w_t$: Weight matrix used to calculate the initial state variance
 - $v_t$: Represents the variance of the measurement noise in the Kalman Filter
 - $\theta$: 1-d array with 2 elements that stores the state estimates
@@ -57,10 +57,10 @@ Now that the required variables have been initialized, we can implement the Kalm
 where 
 - $a_t$: Prior mean
 - $R_t$: Prior variance-covariance
-    - Prior ~ Multivariate-Normal(`at`, `Rt`)
+    - Prior ~ Multivariate-Normal($a_t$, $R_t$)
 - $m_t$: Posterior mean
 - $C_t$: Posterior state variance-covariance matrix
-    - Posterior ~ Multivariate-Normal(`mt`, `Ct`)
+    - Posterior ~ Multivariate-Normal($m_t$, $C_t$)
 - $e_t$: Error term (difference between the actual observation and the prediction)
 - $F_t$: Observation matrix of the latest prices
 - $Q_t$: Variance of the predictions
@@ -120,7 +120,8 @@ The article I used to help me with this can be found [here](https://www.quantsta
 Now that the Kalman Filter class has been created, we can implement and evaluate the Pairs Trading strategy using QuantConnect's backtesting API. 
 
 #### Initialize()
-First we 
+First we need to define the initialize method, specifying the backtest timeframe, strategy cash, and the brokerage model to be used. We also define an event scheduler that will prompt the algorithm to trade every day, 5 minutes before markets close.
+
 ```python
 #region imports
 from AlgorithmImports import *
@@ -155,6 +156,44 @@ Formally, the rules are specified as:
 $\lfloor{\theta_t^0N}\rfloor$ units of TCB
 5. $e_t \leq \sqrt{Q_t}$ - Exit short: Close all short positions of ING nad 
 
+where $e_t$ : Error term, $Q_t$: Variance of predictions, $\theta_0^t$: Dynamic hedge ratio at time t
 
+We implement this using `market orders` to place buy or sell orders at the current market price for the specified equities.
+
+```python
+def UpdateAndTrade(self):
+        # Get recent price and holdings information
+        equity1 = self.CurrentSlice[self.symbols[0]].Close
+        equity2 = self.CurrentSlice[self.symbols[1]].Close
+        holdings = self.Portfolio[self.symbols[0]]
+        
+        forecast_error, prediction_std_dev, hedge_quantity = self.kf.update(equity1, equity2)
+        
+        # If 
+        if not holdings.Invested:
+            # Long the spread
+            if forecast_error < -prediction_std_dev:
+                self.MarketOrder(self.symbols[1], self.kf.qty)
+                self.MarketOrder(self.symbols[0], -hedge_quantity)
+
+            # Short the spread
+            elif forecast_error > prediction_std_dev:
+                self.MarketOrder(self.symbols[1], -self.kf.qty)
+                self.MarketOrder(self.symbols[0], hedge_quantity)
+
+        if holdings.Invested:
+            # Close long position
+            if holdings.IsShort and (forecast_error >= -prediction_std_dev):
+                self.Liquidate()
+                self.invested = None
+            
+            # Close short position
+            elif holdings.IsLong and (forecast_error <= prediction_std_dev):
+                self.Liquidate()
+                self.invested = None
+```
+
+
+## Results 
 This strategy is especially profitable when the market is performing poorly.
 The profit is resulted from mispricing, and mispricings are likely to happen when the market goes down or volatility increases.
