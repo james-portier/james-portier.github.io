@@ -25,14 +25,6 @@ Kalman filters have diverse applications - in this case, we will employ a Kalman
 Although there are various pre-existing libraries that implement a Kalman filter, for this project I chose to create my own custom Kalman filter class in order to improve my understanding. 
 
 #### Initialize
-First we initialize the variables we'll need for to update the Kalman Filter. These are as follows:
-- delta: Constant used to calculate the initial state variance `R`
-- $w_t$: Weight matrix used to calculate the initial state variance
-- $v_t$: Represents the variance of the measurement noise in the Kalman Filter
-- $\theta$: 1-d array with 2 elements that stores the state estimates
-- $P$: 2x2 array representing the variance-covariance matrix
-- $R$: Prior state variance-covariance matrix
-- qty: Integer representing the quantity used for trading positions
 
 <img src="initialize.png?raw=true"/>
 
@@ -54,18 +46,7 @@ Now that the required variables have been initialized, we can implement the Kalm
 
 <img src="kalmanEqns.png?raw=true"/>
 
-where 
-- $a_t$: Prior mean
-- $R_t$: Prior variance-covariance
-    - Prior ~ Multivariate-Normal($a_t$, $R_t$)
-- $m_t$: Posterior mean
-- $C_t$: Posterior state variance-covariance matrix
-    - Posterior ~ Multivariate-Normal($m_t$, $C_t$)
-- $e_t$: Error term (difference between the actual observation and the prediction)
-- $F_t$: Observation matrix of the latest prices
-- $Q_t$: Variance of the predictions
-- $A_t$: Kalman gain, used to update the posterior state estimate
-
+<img src="terms.png?raw=true"/>
 
 The article I used to help me with this can be found [here](https://www.quantstart.com/articles/State-Space-Models-and-the-Kalman-Filter/)
 
