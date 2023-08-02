@@ -6,7 +6,7 @@
 ## Trading strategy
 The idea behind the strategy is to take two equities that are cointegrated and create a long-short portfolio. The premise of this is that the spread between the value of our two positions should be mean-reverting. Anytime the spread deviates from its expected value, one of the assets moved in an unexpected direction and is due to revert back. When the spread diverges, we will take advantage of this by going long or short on the spread.
 
-The pair of equities we will use in this project are 'ING' and 'TCB'. The choice of this pair was informed by the results of a [research article](https://www.quantconnect.com/research/15347/intraday-dynamic-pairs-trading-using-correlation-and-cointegration-approach/p1) that found pairs of cointegrated (and correlated) equities. The results from this showed that the `ING`-`TCB` pair ranked the highest in terms of ADF test value and correlation coefficient.
+The pair of equities we will use in this project are `ING` and `TCB`. The choice of this pair was informed by the results of a [research article](https://www.quantconnect.com/research/15347/intraday-dynamic-pairs-trading-using-correlation-and-cointegration-approach/p1) that found pairs of cointegrated (and correlated) equities. The results from this showed that the `ING`-`TCB` pair ranked the highest in terms of ADF test value and correlation coefficient.
 
 The synthetic "spread" between `ING` and `TCB` is the time series that we are actually interested in longing or shorting. The `Kalman Filter` is used to dynamically track the hedging ratio between the two in order to keep the spread stationary (and hence mean reverting).
 
@@ -167,9 +167,11 @@ def UpdateAndTrade(self):
         equity2 = self.CurrentSlice[self.symbols[1]].Close
         holdings = self.Portfolio[self.symbols[0]]
         
+        # Calculate forecast error, prediction standard deviation, and hedging quantity 
+        # using the Kalman Filter
         forecast_error, prediction_std_dev, hedge_quantity = self.kf.update(equity1, equity2)
         
-        # If 
+        # If we're not currently invested, check current spread 
         if not holdings.Invested:
             # Long the spread
             if forecast_error < -prediction_std_dev:
@@ -181,6 +183,7 @@ def UpdateAndTrade(self):
                 self.MarketOrder(self.symbols[1], -self.kf.qty)
                 self.MarketOrder(self.symbols[0], hedge_quantity)
 
+        # If we are invested, check whether assets have reverted back
         if holdings.Invested:
             # Close long position
             if holdings.IsShort and (forecast_error >= -prediction_std_dev):
@@ -194,6 +197,20 @@ def UpdateAndTrade(self):
 ```
 
 
-## Results 
-This strategy is especially profitable when the market is performing poorly.
-The profit is resulted from mispricing, and mispricings are likely to happen when the market goes down or volatility increases.
+## Results
+
+### Strategy Equity
+
+<img src="backtestSummary.png?raw=true"/>
+
+### Performance Metrics
+<img src="overview.png?raw=true"/>
+
+Upon analyzing the strategy's performance over the specified backtesting period, we observe significant positive indicators, such as a promising `Alpha` (0.211) and a high `Sharpe Ratio` (3.262). These impressive metrics suggest that the strategy has the potential to outperform the market and is relatively less risky in comparison to its returns. However, it is essential to acknowledge a caveat: the specific backtesting time period was deliberately chosen due to the anticipated cointegration and high correlation between ING and TCB during that timeframe. This introduced a look-ahead bias, implying that the strategy might not perform as effectively if a different backtesting period were employed. To ensure greater robustness, it is recommended to backtest the strategy with multiple pairs and over a longer timeframe.
+
+Additionally, this strategy is especially profitable when the market is performing poorly - the profit is resulted from mispricing, and mispricings are likely to happen when the market goes down or volatility increases.
+
+## End note
+Whilst initially struggling to wrap my head around Kalman Filters, creating one from scratch greatly helped with my understanding. Using it to implement a pair trading strategy was interesting and it was satisfying to find a backtesting period in which this strategy performed well. 
+
+
