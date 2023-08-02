@@ -211,5 +211,5 @@ Upon analyzing the strategy's performance over the specified backtesting period,
 To ensure greater robustness, it is recommended to backtest the strategy with multiple pairs and over a longer timeframe.
 
 
-## End note
+### End note
 Whilst initially struggling to wrap my head around Kalman Filters, creating one from scratch greatly helped with my understanding. Using it to implement a pair trading strategy was interesting and it was satisfying to find a backtesting period in which this strategy performed well. 
