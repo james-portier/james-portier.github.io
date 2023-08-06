@@ -9,6 +9,11 @@
 
 ---
 
+[Credit Card Fraud Detection and the investigation of various Data Imputation Methods](/projects/fraudDetection/fraudDetection.html)
+<img src="projects/fraudDetection/images.jpg?raw=true"/>
+
+---
+
 [ARIMA forecasting JPM close prices](/projects/arimaForecasting/arimaFinal.html)
 <img src="projects/arimaForecasting/projectPic.png?raw=true"/>
 
