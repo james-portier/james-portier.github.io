@@ -9,7 +9,7 @@
 
 ---
 
-[Credit Card Fraud Detection and the investigation of various Data Imputation Methods](/projects/fraudDetection/fraudDetection.html)
+[Credit Card Fraud Detection and investigation of various Data Imputation Methods](/projects/fraudDetection/fraudDetection.html)
 <img src="projects/fraudDetection/fraudImage.jpg?raw=true"/>
 
 ---
