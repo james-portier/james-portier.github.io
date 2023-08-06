@@ -14,7 +14,7 @@
 
 ---
 
-[ARIMA forecasting JPM close prices](/projects/arimaForecasting/arimaFinal.html)
+[ARIMA forecasting JPM close prices](/projects/arimaForecasting/arimaResearch.html)
 <img src="projects/arimaForecasting/projectPic.png?raw=true"/>
 
 ---
