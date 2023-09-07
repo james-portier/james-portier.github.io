@@ -23,7 +23,7 @@
 [Pair Trading Strategy using Kalman Filtering](/projects/kalmanFilter/kalmanFilter.html)
 <img src="projects/kalmanFilter/backtestSummary.png?raw=false"/>
 
-[Trading multiple stocks using Coarse and Fine Universe Selection](/projects/multiStock/multiStock.html)
+[Trading several stocks using Coarse and Fine Universe Selection](/projects/multiStock/multiStock.html)
 <img src="projects/multiStock/backtestSummary.png?raw=false"/>
 
 [Long/short strategy using ARIMA forecasting](/projects/arimaForecasting/arimaQC.html)
