@@ -4,6 +4,8 @@ In this project I use Coarse and Fine Universe Selection to trade several stocks
 
 ## Code
 ### Initialize Method
+In the Initialize method, we specify the backtesting timeframe, an initial cash amount of $1,000,000, the benchmark which we will use to compare the strategy's performance, universe settings, and the number of stocks to pass the coarse and market cap selection:
+
 ```python
 def Initialize(self):
         warnings.filterwarnings("ignore")
@@ -44,6 +46,7 @@ def Initialize(self):
 
 
 ### Coarse Selection Method
+This Coarse Selection Method filters stocks based on fundamental data and minimum price criteria. It returns a list of the top N stocks based on dollar volume.
 ```python
 def CoarseSelectionFunction(self, coarse):   
         # Condition that ensures OnData only runs once "warmup period" has passed
@@ -60,6 +63,7 @@ def CoarseSelectionFunction(self, coarse):
 
 
 ### Fine Selection Method
+This function further filters the selected stocks based on additional fundamental criteria such as P/E ratio, EPS growth, and EBITDA margin. It returns a list of the top N stocks by market capitalization.
 ```python
 def FineSelectionFunction(self, fine):
         # Condition that ensures OnData only runs once "warmup period" has passed
@@ -79,6 +83,7 @@ def FineSelectionFunction(self, fine):
 
 
 ### Portfolio Rebalance Method
+This function checks the currently invested stocks and rebalances the portfolio based on the latest long and short positions.
 ```python
 def rebalance_long_short(self):
         # Retrieve currently invested stocks
@@ -92,6 +97,8 @@ def rebalance_long_short(self):
 
 
 ### Strategy Execution
+This function predicts and executes trade orders for selected stocks 5 minutes before the market closes. It then fetches historical price data for each stock and fits an ARIMA model, and makes predictions for the next closing price and determines whether to go long or short based on the prediction. Finally, it rebalances the portfolio by liquidating old positions and setting new positions for long and short stocks.
+
 ```python
 def EveryDayBeforeMarketClose(self) -> None:
         # Condition that ensures OnData only runs once "warmup period" has passed
@@ -149,20 +156,20 @@ def EveryDayBeforeMarketClose(self) -> None:
 
 <img src="backtestSummary.png?raw=true"/>
 
-Above is the strategy's equity chart. The strategy seems to have performed well - the final equity value of the strategy after backtesting is $179,042.49, giving a profit of 48.211% of the original capital. To further investigate the effectiveness of the strategy we look at the performance metrics:
+From the strategy equity chart above we see that the algorithmic trading strategy has been quite successful. It has generated a substantial profit relative to the initial capital, resulting in a strong return on investment. Additionally, the PSR suggests that the strategy has managed risk effectively, as the profit generated is significantly higher than the maximum drawdown.
 
 ### Performance Metrics
 <img src="overview.png?raw=true"/>
 
-The performance metrics we're interested in are the `Alpha`, `Win Rate`,and `Sharpe Ratio`:
-- `Alpha`: Measure of the strategy's excess return relative to its benchmark. A positive alpha of 0.044 suggests the strategy outperformed the benchmark
-- `Win Rate`: The percentage of winning trades is 62%,
-- `Sharpe Ratio`: Measures the risk-adjusted return of the strategy. A value of 1.026 indicates that the strategy has a positive risk-adjusted return, suggesting that the strategy compensates for the volatility (risk) it exposes us to.
+`Sharpe Ratio`: The Sharpe Ratio is a risk-adjusted performance metric. Your value of 0.645 suggests that the strategy has achieved a reasonable return for the level of risk taken. 
+`Alpha` and `Beta`: Alpha measures the strategy's excess return above a benchmark (in this case, the S&P 500). An alpha of 0.018 suggests that the strategy outperformed the benchmark slightly, and a Beta of 0.571 indicates that the strategy is less volatile than the benchmark.
+`Win Rate`: A winrate of 54% indicates that there were more correct predictions than incorrect predictions, and that more than half the trades were profitable.
 
 ### Logs
 <img src="logs.png?raw=true"/>
 
-Finally, the Logs show the return that would've been achieved using a long + hold strategy (**67.9%**). This was outperformed by our strategy, which had an overall return of **79.04%**.
+Finally, the Logs show that a total of *25 stocks* were traded over the backtesting timeframe. There are several different values for p,q, indicating that a seperate hyperparameter optimisation for each stock was beneficial.
+Lastly, the logs reveal that 25 unique stocks were traded throughout the backtesting period. The varying combinations of p and q values employed for each stock underscore the advantage of conducting individual hyperparameter optimization for each stock.
 
 
 
