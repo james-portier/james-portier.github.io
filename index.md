@@ -24,7 +24,7 @@
 <img src="projects/kalmanFilter/backtestSummary.png?raw=false"/>
 
 [Trading several stocks using Coarse and Fine Universe Selection](/projects/multiStock/multiStock.html)
-<img src="projects/multiStock/backtestSummary.png?raw=false"/>
+<img src="projects/multiStock/backtest.png?raw=false"/>
 
 [Long/short strategy using ARIMA forecasting](/projects/arimaForecasting/arimaQC.html)
 <img src="projects/arimaForecasting/backtestSummary.png?raw=false"/>
