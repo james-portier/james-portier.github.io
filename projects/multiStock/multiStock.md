@@ -154,7 +154,7 @@ def EveryDayBeforeMarketClose(self) -> None:
 ## Results
 ### Strategy Equity
 
-<img src="backtestSummary.png?raw=true"/>
+<img src="backtest.png?raw=true"/>
 
 From the strategy equity chart above we see that the algorithmic trading strategy has been quite successful. It has generated a substantial profit relative to the initial capital, resulting in a strong return on investment. Additionally, the PSR suggests that the strategy has managed risk effectively, as the profit generated is significantly higher than the maximum drawdown.
 
