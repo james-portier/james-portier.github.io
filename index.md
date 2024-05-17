@@ -2,7 +2,7 @@
 
 ---
 ### MSc Dissertation
-[Integrating Machine Learning with Modern Portfolio Theory: A Mean-Variance Approach](<pdf/diss.pdf>)
+[Integrating Machine Learning with Modern Portfolio Theory: A Mean-Variance Approach](<pdf/Dissertation.pdf>)
 
 ### Data Science
 
