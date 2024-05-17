@@ -2,7 +2,7 @@
 
 ---
 ### MSc Dissertation
-[Integrating Machine Learning with Modern Portfolio Theory: A Mean-Variance Approach](/pdf/MT5599 Dissertation%-%James Portier.pdf)
+[Integrating Machine Learning with Modern Portfolio Theory: A Mean-Variance Approach](</pdf/MT5599 Dissertation%-%James Portier.pdf>)
 
 ### Data Science
 
