@@ -1,7 +1,7 @@
 ## Portfolio
 
 ---
-### MSc Dissertation
+### Master's Thesis
 [Integrating Machine Learning with Modern Portfolio Theory: A Mean-Variance Approach](<pdf/Dissertation.pdf>)
 
 ### Data Science
