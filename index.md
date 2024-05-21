@@ -43,6 +43,9 @@
 
 Python code for each of these projects are available upon request.
 
+
+---
+
 ## Online courses/certifications
 - [Advanced Learning Algorithms (by *Stanford Online*)](<certifications/advancedLearningAlgorithms.pdf>)
 - [Mathematics for Machine Learning - PCA  (by *Imperial College London*)](<certifications/Mathematics For Machine Learning - PCA.pdf>)
