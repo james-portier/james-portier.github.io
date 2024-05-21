@@ -35,7 +35,11 @@
 ---
 
 ### Computational Numerical Analysis Projects
+[Numerical simulation of fluid dynamics between two parallel plates using FTCS explicit, DuFort-Frankel explicit, Laasonen implicit, and Crank-Nicolson implicit](<pdf/P1.pdf>)
 
+[Investigation of iterative methods for solving Laplace’s equation, focusing on steady-state heat conduction in a two-dimensional rectangular plate, including Jacobi, Point GaussSeidel, Line Gauss-Seidel, Point Successive Over-Relaxation (SOR), and Line SOR methods](<pdf/P2.pdf>)
+
+[Exploring the numerical stability and accuracy of several computational methods for solving the advection and inviscid Burgers’ equations](<pdf/P3.pdf>)
 
 ## Online courses/certifications
 - [Advanced Learning Algorithms (by *Stanford Online*)](<certifications/advancedLearningAlgorithms.pdf>)
