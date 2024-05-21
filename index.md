@@ -41,6 +41,8 @@
 
 [Exploring the numerical stability and accuracy of several computational methods for solving the advection and inviscid Burgers’ equations](<pdf/P3.pdf>)
 
+Python code for each of these projects are available upon request.
+
 ## Online courses/certifications
 - [Advanced Learning Algorithms (by *Stanford Online*)](<certifications/advancedLearningAlgorithms.pdf>)
 - [Mathematics for Machine Learning - PCA  (by *Imperial College London*)](<certifications/Mathematics For Machine Learning - PCA.pdf>)
