@@ -34,6 +34,8 @@
 
 ---
 
+### Computational Numerical Analysis Projects
+
 
 ## Online courses/certifications
 - [Advanced Learning Algorithms (by *Stanford Online*)](<certifications/advancedLearningAlgorithms.pdf>)
