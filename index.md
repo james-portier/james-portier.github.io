@@ -45,5 +45,4 @@ Python code for each of these projects are available upon request.
 - [Advanced Learning Algorithms (by *Stanford Online*)](<certifications/advancedLearningAlgorithms.pdf>)
 - [Mathematics for Machine Learning - PCA  (by *Imperial College London*)](<certifications/Mathematics For Machine Learning - PCA.pdf>)
 - [Neural Networks and Deep Learning (by *DeepLearning.AI*)](</certifications/Deep Learning and Neural Networks.pdf>)
-- [IEUK Technology Sector Internship](</certifications/IEUK Cert.png>)
 - [QuantConnect A-Z Algorithmic Trading Course](</certifications/A-Z Algorithmic Trading Course.png>)
